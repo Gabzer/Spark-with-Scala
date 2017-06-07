@@ -61,7 +61,7 @@ println(s"I can use the s prefix to use variables like $numberOne $truth $letter
 
 ```scala
 println(s"The s prefix isn't limited to variables; I can include any expression. Like ${1+2}")
-´´´
+```
 
 *//> The s prefix isn't limited to variables; I can include any expression. Like 3*
 											 
