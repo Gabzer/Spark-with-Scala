@@ -71,14 +71,8 @@ Using **regular expressions**:
 val theUltimateAnswer: String = "To life, the universe, and everything is 42."
 val pattern = """.* ([\d]+).*""".r
 val pattern(answerString) = theUltimateAnswer				//> answerString  : String = 42
-```
-
-```scala
-val answer = answerString.toInt		//> answer  : Int = 42
-```
-
-```scala
-println(answer)               //> 42
+val answer = answerString.toInt		                        //> answer  : Int = 42
+println(answer)               								//> 42
 ```
 
 **If / else** syntax
@@ -134,6 +128,7 @@ do { println(x); x+=1 } while (x <= 10)
 ```
 
 #Expressions
+=================
 
 "Returns" the final value in a block automatically
 
@@ -144,15 +139,16 @@ println({val x = 10; x + 20})
 ```
 
 #Functions
+=================
   
 Format is def <function name>(parameter name: type...) : return type = { expression }
+
 Don't forget the = before the expression!
 
 ```scala
 def squareIt(x: Int) : Int = {
 	x * x
 }
-
 def cubeIt(x: Int): Int = {x * x * x}
 ```
 
@@ -162,7 +158,6 @@ Functions can take other **functions as parameters**
 def transformInt(x: Int, f: Int => Int) : Int = {
 	f(x)
 }
-
 val result = transformInt(2, cubeIt)
 ```
 
@@ -182,8 +177,11 @@ transformInt(2, x => {val y = x * 2; y * y})
 #Data structures
 =================  
 **Tuples** (Also really common with Spark!!)
+
 Immutable lists
+
 Often thought of as database fields, or columns.
+
 Useful for passing around entire rows of data.
 
 ```scala
@@ -214,7 +212,9 @@ val aBunchOfStuff = ("Kirk", 1964, true)
 #Lists
 ==============
 Like a tuple, but it's an actual Collection object that has more functionality.
+
 Also, it cannot hold items of different types.
+
 It's a singly-linked list under the hood.
 
 ```scala
@@ -231,28 +231,28 @@ head and tail give you the first item, and the remaining ones.
 
 ```scala
 println(shipList.head)                           //> Enterprise
-println(shipList.tail) 							 //> List(Defiant, Voyager, Deep Space Nine)
+println(shipList.tail) 				//> List(Defiant, Voyager, Deep Space Nine)
 ```
 
 Iterating though a list
 
 ```scala
 for (ship <- shipList) {println(ship)}        //> Enterprise
-											  //| Defiant
-											  //| Voyager
-											  //| Deep Space Nine
+							  //| Defiant
+							  //| Voyager
+							  //| Deep Space Nine
 ```
 
 Let's apply a function literal to a list! **map()** can be used to apply any function to every item in a collection.
 
 ```scala
 val backwardShips = shipList.map( (ship: String) => {ship.reverse})
-											  //> backwardShips  : List[String] = List(esirpretnE, tnaifeD, regayoV, eniN eca
-											  //| pS peeD)
+							  //> backwardShips  : List[String] = List(esirpretnE, tnaifeD, regayoV, eniN eca
+							  //| pS peeD)
 for (ship <- backwardShips) {println(ship)}      //> esirpretnE
-											  //| tnaifeD
-											  //| regayoV
-											  //| eniN ecapS peeD
+							  //| tnaifeD
+							  //| regayoV
+							  //| eniN ecapS peeD
 ```
 
 **reduce()** can be used to combine together all the items in a collection using some function.
@@ -260,7 +260,7 @@ for (ship <- backwardShips) {println(ship)}      //> esirpretnE
 ```scala
 val numberList = List(1, 2, 3, 4, 5)              //> numberList  : List[Int] = List(1, 2, 3, 4, 5)
 val sum = numberList.reduce( (x: Int, y: Int) => x + y)
-											  //> sum  : Int = 15
+							  //> sum  : Int = 15
 println(sum)                                      //> 15
 ```
 
@@ -268,7 +268,7 @@ println(sum)                                      //> 15
 
 ```scala
 val iHateFives = numberList.filter( (x: Int) => x != 5)
-											  //> iHateFives  : List[Int] = List(1, 2, 3, 4)
+							  //> iHateFives  : List[Int] = List(1, 2, 3, 4)
 val iHateThrees = numberList.filter(_ != 3)       //> iHateThrees  : List[Int] = List(1, 2, 4, 5)
 ```
 
