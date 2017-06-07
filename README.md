@@ -57,37 +57,37 @@ println(f"Zero padding on the left: $numberOne%05d")
 											  
 **Substituting** in variables:
 
-'''scala
+```scala
 println(s"I can use the s prefix to use variables like $numberOne $truth $letterA")
-'''
+```
 
 *//> I can use the s prefix to use variables like 1 true a*
 
 **Substituting expressions** (with curly brackets):
 
-'''scala
+```scala
 println(s"The s prefix isn't limited to variables; I can include any expression. Like ${1+2}")
-'''
+```
 
 *//> The s prefix isn't limited to variables; I can include any expression. Like 3*
 											 
 Using **regular expressions**:
 
-'''scala
+```scala
 val theUltimateAnswer: String = "To life, the universe, and everything is 42."
 
 val pattern = """.* ([\d]+).*""".r
 
 val pattern(answerString) = theUltimateAnswer
-'''
+```
 //> answerString  : String = 42
 
-'''scala
+```scala
 val answer = answerString.toInt
-'''
+```
 //> answer  : Int = 42
 
-'''scala
+```scala
 println(answer)
-'''
+```
 //> 42
