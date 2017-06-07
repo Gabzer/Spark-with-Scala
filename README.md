@@ -83,3 +83,95 @@ val answer = answerString.toInt
 println(answer)
 ```
 //> 42
+
+**If / else** syntax
+
+```scala
+if (1 > 3) println("Impossible!") else println("The world makes sense.")
+
+if (1 > 3) {
+println("Impossible!")
+} else {
+println("The world makes sense.")
+}
+```
+
+**Matching** - like switch in other languages:
+
+```scala
+val number = 3
+number match {
+case 1 => println("One")
+case 2 => println("Two")
+case 3 => println("Three")
+case _ => println("Something else")
+}```
+
+**For** loops
+
+```scala
+for (x <- 1 to 4) {
+	val squared = x * x
+	println(squared)
+}
+```
+
+**While** loops
+
+```scala
+var x = 10
+while (x >= 0) {
+	println(x)
+	x -= 1
+}
+
+**Do** loops
+
+```scala
+x = 0
+do { println(x); x+=1 } while (x <= 10)
+```
+
+**Expressions**
+"Returns" the final value in a block automatically
+
+```scala
+{val x = 10; x + 20}
+
+println({val x = 10; x + 20})
+```
+
+**Functions**
+  
+Format is def <function name>(parameter name: type...) : return type = { expression }
+Don't forget the = before the expression!
+
+```scala
+def squareIt(x: Int) : Int = {
+x * x
+}
+
+def cubeIt(x: Int): Int = {x * x * x}
+```
+
+Functions can take other **functions as parameters**
+
+```scala
+def transformInt(x: Int, f: Int => Int) : Int = {
+f(x)
+}
+
+val result = transformInt(2, cubeIt)
+```
+
+**"Lambda functions", "anonymous functions", "function literals"**
+You can declare functions inline without even giving them a name
+This happens a lot in Spark.
+
+```scala
+transformInt(3, x => x * x * x)
+
+transformInt(10, x => x / 2)
+
+transformInt(2, x => {val y = x * 2; y * y})
+```
