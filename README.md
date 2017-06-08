@@ -247,8 +247,6 @@ Let's apply a function literal to a list! **map()** can be used to apply any fun
 
 ```scala
 val backwardShips = shipList.map( (ship: String) => {ship.reverse})
-							  //> backwardShips  : List[String] = List(esirpretnE, tnaifeD, regayoV, eniN eca
-							  //| pS peeD)
 for (ship <- backwardShips) {println(ship)}      //> esirpretnE
 							  //| tnaifeD
 							  //| regayoV
@@ -287,7 +285,7 @@ More list fun
 ```scala
 val reversed = numberList.reverse                 //> reversed  : List[Int] = List(5, 4, 3, 2, 1)
 val sorted = reversed.sorted                      //> sorted  : List[Int] = List(1, 2, 3, 4, 5)
-val lotsOfDuplicates = numberList ++ numberList   //> lotsOfDuplicates  : List[Int] = List(1, 2, 3, 4, 5, 1, 2, 3, 4, 5)
+val lotsOfDuplicates = numberList ++ numberList   //> lotsOfDuplicates  : List[Int] = List(1,2,3,4,5,1,2,3,4,5)
 val distinctValues = lotsOfDuplicates.distinct    //> distinctValues  : List[Int] = List(1, 2, 3, 4, 5)
 val maxValue = numberList.max                     //> maxValue  : Int = 5
 val total = numberList.sum                        //> total  : Int = 15
