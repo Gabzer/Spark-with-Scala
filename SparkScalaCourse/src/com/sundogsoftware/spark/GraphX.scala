@@ -48,11 +48,11 @@ object GraphX {
     val sc = new SparkContext("local[*]", "GraphX")
     
      // Build up our vertices
-    val names = sc.textFile("../marvel-names.txt")
+    val names = sc.textFile("../../CourseMaterials/marvel-names.txt")
     val verts = names.flatMap(parseNames)
     
     // Build up our edges
-    val lines = sc.textFile("../marvel-graph.txt")
+    val lines = sc.textFile("../../CourseMaterials/marvel-graph.txt")
     val edges = lines.flatMap(makeEdges)    
     
     // Build up our graph, and cache it as we're going to do a bunch of stuff with it.
